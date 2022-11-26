@@ -1,9 +1,6 @@
 package com.codingjx.spbtdi;
 
-import com.codingjx.spbtdi.controllers.ConstructorInjectedController;
-import com.codingjx.spbtdi.controllers.MyController;
-import com.codingjx.spbtdi.controllers.PropertyInjectedController;
-import com.codingjx.spbtdi.controllers.SetterInjectedController;
+import com.codingjx.spbtdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SpbtDiApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SpbtDiApplication.class, args);
+
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+        System.out.println(i18nController.sayHello());
 
         // Spring framework helps creating the instance of MyController.
         MyController myController = (MyController) ctx.getBean("myController");
